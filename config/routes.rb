@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do
+    get 'list_projects', on: :collection
+  end
   devise_for :users
 
   root to: "posts#index"

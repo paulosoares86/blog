@@ -19,6 +19,8 @@
       <%= link_to 'Paulo Soares', posts_path, class: "brand-logo"%>
 
       <ul class="right hide-on-med-and-down">
+        <li><%= link_to 'Posts', posts_path %></li>
+        <li><%= link_to 'Projects', list_projects_posts_path %></li>
         <li><%= mail_to 'phsoares.ita@gmail.com', 'Contact' %></li>
         <% if signed_in? %>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>

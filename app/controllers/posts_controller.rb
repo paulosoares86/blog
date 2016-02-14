@@ -1,13 +1,18 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :check_permission, except: [:index, :show]
+  before_action :authenticate_user!, except: [:list_projects, :index, :show]
+  before_action :check_permission, except: [:list_projects, :index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
     @show_banner = true
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.where(is_project: false).order(created_at: :desc)
+  end
+
+  def list_projects
+    @show_banner = true
+    @posts = Post.all.where(is_project: true).order(created_at: :desc)
   end
 
   # GET /posts/1
@@ -82,6 +87,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:user_id, :title, :body, :image)
+      params.require(:post).permit(:user_id, :title, :body, :image, :is_project)
     end
 end
