@@ -1,0 +1,39 @@
+<article>
+
+  <div class="article-header">
+    <p>
+      <time class="article-date" datetime="<%= post.created_at %>">
+        <%= post.created_at.to_formatted_s(:long) %>
+      </time>
+    </p>
+    <h1 class="article-title my-container">
+      <strong>
+        <%= post.title %>
+      </strong>
+    </h1>
+  </div>
+
+  <img class="article-image" src="<%= post.image %>">
+
+  <div class="article-body my-container">
+    <% if show_details %>
+      <%= raw post.body %>
+    <% else %>
+      <%= raw truncate(post.body, length: 140, escape: false) %>
+    <% end %>
+  </div>
+
+  <div class="article-actions">
+    <% if !show_details %>
+      <%= link_to 'Continue reading', post %>
+    <% end %>
+    <% if signed_in? and current_user.is_admin %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <% if show_details %>
+        <%= link_to 'Back', posts_path %>
+      <% end %>
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+
+</article>

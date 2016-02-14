@@ -1,0 +1,162 @@
+@import "materialize/components/color";
+$primary-color: color("blue", "darken-3") !default;
+$secondary-color: color("blue", "lighten-1") !default;
+@import 'materialize';
+
+$active_color: #008CBA;
+$background_color: rgba(0, 0, 0, 0.03);
+$article_background_color: rgb(255,255,255);
+$footer_link_color: rgb(123, 123, 123);
+$footer_background_color: rgb(0, 0, 0);
+$code_background_color: rgba(0, 0, 0, 0.05);
+
+h1, h2, h3, h4 {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
+
+.no-padding-header {
+  padding: 0 0 0 0;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+nav {
+  @extend .z-depth-0;
+}
+
+nav .brand-logo, .brand-logo:hover {
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: black;
+}
+
+nav li a {
+  color: black !important;
+}
+
+section {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.my-container {
+  padding: 0 3em 0 3em;
+}
+
+.main-banner {
+  width: 100%;
+  height: 480px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/images/background.jpg');
+}
+
+.page-content {
+  padding-top: 5em;
+}
+
+a:hover, a:active {
+  color: $active_color;
+}
+
+nav {
+  background-color: $article_background_color;
+  height: 8em;
+  padding-top: 2em;
+}
+
+section {
+  padding-bottom: 6em;
+}
+
+section.main {
+  background-color: $background_color;
+}
+
+article {
+  background-color: $article_background_color;
+  margin-bottom: 1em;
+}
+
+.article-header {
+  padding-top: 3em;
+}
+
+.article-date {
+  color: #7b7b7b;
+}
+
+.article-image {
+  width: 100%;
+}
+
+.article-header,  .article-body, .article-actions {
+  @extend .center-align;
+  padding-bottom: 3em;
+}
+
+.article-title {
+  text-align: center;
+}
+
+.article-body {
+  text-align: justify;
+}
+
+.article-actions a {
+  @extend .waves-effect;
+  @extend .waves-light;
+  @extend .btn;
+}
+
+code {
+  display: block;
+  background-color: $code_background_color;
+}
+
+input[type="submit"] {
+  @extend .btn;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.my-image {
+  @extend .circle;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: 100%;
+}
+
+footer {
+  margin-top: -1.5em;
+  padding-top: 2.5em;
+  height: 100%;
+  background-color: $footer_background_color;
+}
+
+footer a {
+  color: $footer_link_color;
+  padding-left: 2em;
+}
+
+footer p {
+  color: $footer_link_color;
+  margin-top: 0em;
+}
